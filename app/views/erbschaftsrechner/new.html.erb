@@ -1,0 +1,7 @@
+<h1>Erbschaftssteuerechner</h1>
+
+<%= simple_form_for @rechner, url: erbschaftsrechner_index_path do |f| %>
+  <%= f.input :verwandschaftsverhältniss, collection: ["Ehepartner", "eingetragene Lebenspartner", "Kinder, Stiefkinder", "Enkel", "Eltern & Großeltern", "Geschwister, Neffen, weitere Verwandte", "nicht verwandt"] %>
+  <%= f.input :vermögen %>
+  <%= f.submit %>
+<% end %>

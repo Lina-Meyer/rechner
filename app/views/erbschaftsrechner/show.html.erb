@@ -1,0 +1,19 @@
+<h1>Erbschaftssteuerrechner</h1>
+<p>Vermögen: <%= @rechner.vermögen %>€</p>
+<p>Steuerfreibetrag: <%= @rechner.freibetrag %>€</p>
+<% if (@rechner.vermögen-@rechner.freibetrag) <= 0 %>
+  <p>zu versteuern: 0€</p>
+<% else %>
+  <p>zu versteuern: <%= @rechner.vermögen-@rechner.freibetrag %>€</p>
+<% end %>
+<p>Steuersatz: <%= @rechner.steuersatz %>%</p>
+<% if (@rechner.vermögen-@rechner.freibetrag) <= 0 %>
+  <p> Erbschaftssteuer: 0€</p>
+<% else %>
+  <p>Erbschaftssteuer: <%= (@rechner.vermögen-@rechner.freibetrag)*@rechner.steuersatz/100 %>€</p>
+<% end %>
+<% if (@rechner.vermögen-@rechner.freibetrag) <= 0 %>
+  <p>geerbtes Vermögen: <%= @rechner.vermögen %>€</p>
+<% else %>
+  <p>geerbtes Vermögen: <%= @rechner.vermögen - ((@rechner.vermögen-@rechner.freibetrag)*@rechner.steuersatz/100)%>€</p>
+<% end %>
